@@ -5,7 +5,9 @@ import Footer from "../components/Footer";
 const MainLayout = () => {
     return (
         <div className=" font-raleway">
-            <NavBar></NavBar>
+            <div className="h-16">
+                <NavBar></NavBar>
+            </div>
             <Outlet></Outlet>
             <Footer></Footer>
         </div>

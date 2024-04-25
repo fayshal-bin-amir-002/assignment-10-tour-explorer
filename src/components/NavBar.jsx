@@ -10,8 +10,8 @@ const NavBar = () => {
     </>
 
     return (
-        <div className="px-2 md:px-12 lg:px-24 bg-[#FEFDED]">
-            <div className="navbar">
+        <div className="px-2 bg-[#FEFDED] fixed top-0 w-full z-10 bg-opacity-90">
+            <div className="navbar container mx-auto">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <div tabIndex={0} role="button" className="btn px-2 md:px-4 btn-ghost lg:hidden">
