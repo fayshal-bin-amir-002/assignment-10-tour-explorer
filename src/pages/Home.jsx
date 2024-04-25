@@ -1,7 +1,11 @@
+import Banner from "../components/Banner";
+import TouristSpots from "../components/TouristSpots";
+
 const Home = () => {
     return (
         <div>
-            <p>this is home</p>
+            <Banner></Banner>
+            <TouristSpots></TouristSpots>
         </div>
     );
 };
