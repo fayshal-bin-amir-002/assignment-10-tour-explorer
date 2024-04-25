@@ -8,7 +8,8 @@ export default {
     extend: {},
     fontFamily: {
       raleway: '"Raleway", sans-serif'
-    }
+    },
+    themes: ["light", "dark"]
   },
   plugins: [require("daisyui")],
 }

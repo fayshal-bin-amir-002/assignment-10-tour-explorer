@@ -11,7 +11,7 @@ const TouristSpotCard = ({ spot }) => {
 
     return (
         <div data-aos="zoom-in" data-aos-duration="1000">
-            <div className="flex flex-col h-[550px] justify-between p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900">
+            <div className="flex flex-col h-[550px] justify-between p-6 rounded-md shadow-md dark:bg-gray-50 dark:text-gray-900 border border-[#C6EBC5]">
                 <div>
                     <img src={image} alt="" className="object-cover object-center w-full rounded-md h-72 dark:bg-gray-500" />
                     <div className="mt-6 mb-2 flex justify-between items-center">
@@ -22,7 +22,7 @@ const TouristSpotCard = ({ spot }) => {
                     <p className="dark:text-gray-800">{shortdescription}</p>
                 </div>
                 <div>
-                    <Link to={`/spot-details/${_id}`}><button className='btn w-full bg-[#A1C398]'>View Details</button></Link>
+                    <Link to={`/spot-details/${_id}`}><button className='btn w-full bg-[#A1C398] text-white'>View Details</button></Link>
                 </div>
             </div>
         </div>
