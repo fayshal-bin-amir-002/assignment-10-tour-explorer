@@ -38,7 +38,7 @@ const NavBar = () => {
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 gap-1 z-[1] p-2 shadow rounded-box bg-[#FEFDED] w-52 font-semibold">
                             {navLinks}
                             <li className="block md:hidden">
-                                <Link><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white ">Login</button></Link>
+                                <Link to="/login"><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white ">Login</button></Link>
                                 <Link><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white ">Register</button></Link>
                             </li>
                         </ul>
@@ -60,7 +60,7 @@ const NavBar = () => {
                         </label>
                     </div>
                     <div className="space-x-1 md:space-x-4 hidden md:block">
-                        <Link><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white">Login</button></Link>
+                        <Link to="/login"><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white">Login</button></Link>
                         <Link><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white">Register</button></Link>
                     </div>
                 </div>
