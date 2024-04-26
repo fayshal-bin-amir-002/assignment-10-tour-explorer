@@ -19,7 +19,7 @@ const AllSpots = () => {
         <div className="container mx-auto px-6 md:px-12 lg:px-24 my-6 md:my-8 lg:my-12">
             <div className="flex justify-center pb-6 md:pb-8 lf:pb-12">
                 <div className="dropdown dropdown-bottom w-[150px]">
-                    <div tabIndex={0} role="button" className="btn m-1 w-full bg-[#A1C398] text-white text-lg">Sort By</div>
+                    <div tabIndex={0} role="button" className="btn m-1 w-full bg-[#A1C398] text-white text-lg">Sort By Cost</div>
                     <ul tabIndex={0} className="dropdown-content z-[1] text-lg font-medium menu p-2 shadow bg-[#FEFDED] rounded-box w-52">
                         <li onClick={() =>handleSort("none")}><p>None</p></li>
                         <li onClick={() =>handleSort("high")}><p>Low to high</p></li>

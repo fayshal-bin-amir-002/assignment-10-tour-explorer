@@ -29,7 +29,7 @@ const Login = () => {
                 location?.state ? navigate(location.state) : navigate('/')
             })
             .catch((error) => {
-                toast.error(error.message);
+                toast.error("Invalid email/password");
             })
     }
 
@@ -50,7 +50,7 @@ const Login = () => {
                 toast.success("User logged in successfully");
                 location?.state ? navigate(location.state) : navigate('/')
             })
-            .catch((error) => {
+            .catch(() => {
                 toast.error(error.message);
             })
     }

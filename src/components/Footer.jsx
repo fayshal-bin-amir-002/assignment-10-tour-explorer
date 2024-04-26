@@ -9,11 +9,11 @@ const Footer = () => {
         },
         {
             href: '/all-spots',
-            name: 'All Spots'
+            name: 'All Tourists Spot'
         },
         {
             href: 'add-spot',
-            name: 'Add Spot'
+            name: 'Add Tourists Spot'
         },
         {
             href: '/my-list',
@@ -41,7 +41,7 @@ const Footer = () => {
                         ))
                     }
                 </ul>
-                <div className="mt-8 items-center justify-between flex flex-col md:flex-row">
+                <div className="mt-8 items-center justify-between flex flex-col-reverse md:flex-row">
                     <div className="mt-4 sm:mt-0">
                         &copy; 2024 All rights reserved by Tour<span className="text-[#FA7070]">Explorer</span>. 
                     </div>
