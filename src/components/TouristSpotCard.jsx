@@ -25,7 +25,7 @@ const TouristSpotCard = ({ spot }) => {
                         <p className='flex items-center gap-2 text-[#A1C398]'><RiMoneyRupeeCircleLine />{average_cost}k</p>
                         <p className='text-[#FA7070]'>{seasonality}</p>
                     </div>
-                    <p className="dark:text-gray-800">{shortdescription}</p>
+                    <p className="dark:text-gray-800">{shortdescription.length>60 ? shortdescription.slice(0,60)+'...':shortdescription}</p>
                 </div>
                 <div className='pt-5'>
                     <Link to={`/spot-details/${_id}`}><button className='btn w-full bg-[#A1C398] text-white'>View Details</button></Link>

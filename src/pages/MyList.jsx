@@ -12,7 +12,7 @@ const MyList = () => {
     const [spots, setSpots] = useState([]);
 
     useEffect(() => {
-        fetch(`https://tour-explorer-server-side.vercel.app/mySpots/${user.email}`)
+        fetch(`https://tour-explorer-server-side.vercel.app/mySpots/${user?.email}`)
             .then(res => res.json())
             .then(data => setSpots(data))
     }, [user]);
@@ -57,7 +57,7 @@ const MyList = () => {
                     <div className="max-w-lg">
                         <h3 className="max-w-max pb-2 mb-4 lg:mb-6 border-[#FA7070] text-2xl md:text-3xl lg:text-4xl font-semibold border-b-4">Your added spots are here</h3>
                         <p className="text-gray-600 mt-2">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                        Discover our latest additions: hidden gems nestled amidst breathtaking landscapes.
                         </p>
                     </div>
                     <div className="mt-3 md:mt-0">
