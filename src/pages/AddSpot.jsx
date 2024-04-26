@@ -55,7 +55,7 @@ const AddSpot = () => {
                             <option value="Spain">Spain</option>
                             <option value="England">England</option>
                             <option value="Netherlands">Netherlands</option>
-                            <option value="Swizerland">Swizerland</option>
+                            <option value="Swizerland">Switzerland</option>
                         </select>
                     </label>
                     <label className="form-control w-full">
