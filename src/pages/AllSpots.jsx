@@ -9,7 +9,7 @@ const AllSpots = () => {
     const [seeMore, setSeeMore] = useState(9);
 
     const handleSort = (txt) => {
-        fetch(`http://localhost:3000/sortSpots/${txt}`)
+        fetch(`https://tour-explorer-server-side.vercel.app/sortSpots/${txt}`)
             .then(res => res.json())
             .then(data => setSpots(data))
         

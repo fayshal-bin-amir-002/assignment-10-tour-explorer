@@ -6,7 +6,7 @@ const Countries = () => {
     const [countries, setCountries] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:3000/countries')
+        fetch('https://tour-explorer-server-side.vercel.app/countries')
             .then(res => res.json())
             .then(data => setCountries(data))
     },[]);

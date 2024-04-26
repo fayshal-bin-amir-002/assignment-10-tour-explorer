@@ -24,7 +24,7 @@ const router = createBrowserRouter([
       {
         path: "/all-spots",
         element: <AllSpots></AllSpots>,
-        loader: () => fetch('http://localhost:3000/touristSpots')
+        loader: () => fetch('https://tour-explorer-server-side.vercel.app/touristSpots')
       },
       {
         path: "/add-spot",
@@ -37,7 +37,7 @@ const router = createBrowserRouter([
       {
         path: "/spot-details/:id",
         element: <PrivateRoute><SpotDetails></SpotDetails></PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:3000/touristSpots/${params.id}`)
+        loader: ({params}) => fetch(`https://tour-explorer-server-side.vercel.app/touristSpots/${params.id}`)
       },
       {
         path: "/login",
@@ -50,12 +50,12 @@ const router = createBrowserRouter([
       {
         path: "/update-spot/:id",
         element: <UpdateSpot></UpdateSpot>,
-        loader: ({params}) => fetch(`http://localhost:3000/touristSpots/${params.id}`)
+        loader: ({params}) => fetch(`https://tour-explorer-server-side.vercel.app/touristSpots/${params.id}`)
       },
       {
         path: "/country-spots/:country",
         element: <CountrySpots></CountrySpots>,
-        loader: ({params}) => fetch(`http://localhost:3000/countrySpots/${params.country}`)
+        loader: ({params}) => fetch(`https://tour-explorer-server-side.vercel.app/countrySpots/${params.country}`)
       }
     ],
     errorElement: <ErrorPage></ErrorPage>

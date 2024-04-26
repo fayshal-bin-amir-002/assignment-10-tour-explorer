@@ -30,7 +30,7 @@ const UpdateSpot = () => {
             denyButtonText: `Don't save`
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:3000/touristSpots/${_id}`, {
+                fetch(`https://tour-explorer-server-side.vercel.app/touristSpots/${_id}`, {
                     method: "PATCH",
                     headers: { 'content-type': 'application/json' },
                     body: JSON.stringify(updatedSpot)
