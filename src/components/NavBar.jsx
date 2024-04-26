@@ -2,11 +2,12 @@ import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import { Tooltip } from 'react-tooltip'
+import { toast } from "react-toastify";
 
 
 const NavBar = () => {
 
-    const { user } = useContext(AuthContext); console.log(user);
+    const { user, userLogOut } = useContext(AuthContext);
 
     const [theme, setTheme] = useState('light');
 
@@ -24,6 +25,16 @@ const NavBar = () => {
         const localTheme = localStorage.getItem('theme');
         document.querySelector('html').setAttribute('data-theme', localTheme);
     }, [theme]);
+
+    const handleLogout = () => {
+        userLogOut()
+            .then(() => {
+                toast.success("User Logged Out");
+            })
+            .catch((error) => {
+                toast.error(error.message);
+            })
+    }
 
     const navLinks = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-[#FA7070] border-b-4 pb-1 border-[#FA7070] duration-200' : ''}>Home</NavLink></li>
@@ -48,11 +59,11 @@ const NavBar = () => {
                                     <div className="flex items-center gap-2">
                                         <img src={user.photoURL || 'https://i.postimg.cc/xTvwshPT/boy1.png'} className="w-10" />
                                         <div className="text-xs">
-                                            <p>Name: {user.displayName}</p>
-                                            <p>Email: {user.email}</p>
+                                            <p>{user.displayName}</p>
+                                            <p>{user.email}</p>
                                         </div>
                                     </div>
-                                    <Link><button className="btn btn-sm md:btn-md bg-[#FA7070] text-white">Log out</button></Link>
+                                    <Link><button onClick={handleLogout} className="btn btn-sm md:btn-md bg-[#FA7070] text-white">Log out</button></Link>
                                 </div> :
                                 <div className="block md:hidden space-x-3">
                                     <Link to="/login"><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white ">Login</button></Link>
@@ -88,12 +99,12 @@ const NavBar = () => {
                                 >
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
-                                            <img alt="Tailwind CSS Navbar component" src={user || 'https://i.postimg.cc/xTvwshPT/boy1.png'} />
+                                            <img alt="Tailwind CSS Navbar component" src={user.photoURL || 'https://i.postimg.cc/xTvwshPT/boy1.png'} />
                                         </div>
                                     </div>
                                     <Tooltip id="my-tooltip" />
                                 </div>
-                                <button className="btn btn-sm md:btn-md bg-[#FA7070] text-white">Log out</button>
+                                <button onClick={handleLogout} className="btn btn-sm md:btn-md bg-[#FA7070] text-white">Log out</button>
                             </div>
                             :
                             <div className="space-x-1 md:space-x-4">

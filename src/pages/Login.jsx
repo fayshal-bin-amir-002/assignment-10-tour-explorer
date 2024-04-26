@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import google from "../assets/google.png";
 import github from "../assets/git.svg";
 import { AuthContext } from "../provider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Login = () => {
 
@@ -17,6 +18,14 @@ const Login = () => {
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
+
+        userLogin(email, password)
+            .then(() => {
+                toast.success("User logged in successfully");
+            })
+            .catch((error) => {
+                toast.error(error.message);
+            })
     }
 
     return (
