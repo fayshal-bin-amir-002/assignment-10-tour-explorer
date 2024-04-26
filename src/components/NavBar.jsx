@@ -39,7 +39,7 @@ const NavBar = () => {
     const navLinks = <>
         <li><NavLink to='/' className={({ isActive }) => isActive ? 'text-[#FA7070] border-b-4 pb-1 border-[#FA7070] duration-200' : ''}>Home</NavLink></li>
         <li><NavLink to='/all-spots' className={({ isActive }) => isActive ? 'text-[#FA7070] border-b-4 pb-1 border-[#FA7070] duration-200' : ''}>All Spots</NavLink></li>
-        <li><NavLink to='/add-spot' className={({ isActive }) => isActive ? 'text-[#FA7070] border-b-4 pb-1 border-[#FA7070] duration-200' : ''}>Add Spot</NavLink></li>
+        <li><NavLink to={`/add-spot`} className={({ isActive }) => isActive ? 'text-[#FA7070] border-b-4 pb-1 border-[#FA7070] duration-200' : ''}>Add Spot</NavLink></li>
         <li><NavLink to='/my-list' className={({ isActive }) => isActive ? 'text-[#FA7070] border-b-4 pb-1 border-[#FA7070] duration-200' : ''}>My List</NavLink></li>
     </>
 

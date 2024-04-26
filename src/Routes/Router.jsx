@@ -9,6 +9,7 @@ import SpotDetails from "../pages/SpotDetails";
 import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
+import UpdateSpot from "../pages/UpdateSpot";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,11 @@ const router = createBrowserRouter([
       {
         path: "/register",
         element: <Register></Register>
+      },
+      {
+        path: "/update-spot/:id",
+        element: <UpdateSpot></UpdateSpot>,
+        loader: ({params}) => fetch(`http://localhost:3000/touristSpots/${params.id}`)
       }
     ],
     errorElement: <ErrorPage></ErrorPage>

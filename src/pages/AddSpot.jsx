@@ -1,12 +1,40 @@
+import { useContext } from "react";
 import { toast } from "react-toastify";
+import { AuthContext } from "../provider/AuthProvider";
 
 const AddSpot = () => {
+
+    const { user } = useContext(AuthContext);
 
     const handleAddSpot = (e) => {
         e.preventDefault();
         const form = e.target;
-        console.log(form.country.value);
+        const country_Name = form.country.value;
+        const tourist_spot_name = form.spot.value;
+        const location = form.location.value;
+        const average_cost = form.cost.value;
+        const seasonality = form.season.value;
+        const travel_time = form.time.value;
+        const totalVisitorsPerYear = form.visitors.value;
+        const shortdescription = form.details.value;
+        const image = form.photo.value;
+        const name = form.name.value || user.displayName;
+        const email = form.email.value || user.email;
+        
+        const newSpot = { country_Name, tourist_spot_name, location, average_cost, seasonality, travel_time, totalVisitorsPerYear, shortdescription, image, name, email };
 
+        fetch('http://localhost:3000/touristSpots', {
+            method: "POST",
+            headers: {'content-type': 'application/json'},
+            body: JSON.stringify(newSpot)
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if(data.insertedId) {
+                    form.reset();
+                    toast.success('Spot added successfully');
+                }
+            })
     }
 
     return (
@@ -34,61 +62,61 @@ const AddSpot = () => {
                         <div className="label">
                             <span className="label-text">Spot name</span>
                         </div>
-                        <input type="text" name="spot" placeholder="Type spot name" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <input type="text" name="spot" placeholder="Type spot name" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" required />
                     </label>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Location</span>
                         </div>
-                        <input type="text" name="location" placeholder="Type location" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <input type="text" name="location" placeholder="Type location" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" required />
                     </label>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Average Cost</span>
                         </div>
-                        <input type="cost" name="location" placeholder="Type average cost" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <input type="cost" name="cost" placeholder="Type average cost" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" required />
                     </label>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Seasonality</span>
                         </div>
-                        <input type="cost" name="season" placeholder="Type seasonality" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <input type="cost" name="season" placeholder="Type seasonality" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" required />
                     </label>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Travel time</span>
                         </div>
-                        <input type="cost" name="time" placeholder="Type travel time" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <input type="cost" name="time" placeholder="Type travel time" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" required />
                     </label>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Total visitors</span>
                         </div>
-                        <input type="cost" name="visitors" placeholder="Type total visitors" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <input type="cost" name="visitors" placeholder="Type total visitors" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" required />
                     </label>
                     <label className="form-control md:col-span-2">
                         <div className="label">
                             <span className="label-text">Details</span>
                         </div>
-                        <textarea name="details" className="textarea textarea-bordered h-24 border-[#A1C398] focus:outline-none focus:border-[#FA7070]" placeholder="Type details"></textarea>
+                        <textarea name="details" className="textarea textarea-bordered h-24 border-[#A1C398] focus:outline-none focus:border-[#FA7070]" placeholder="Type details" required></textarea>
                     </label>
                     <label className="form-control w-full md:col-span-2">
                         <div className="label">
                             <span className="label-text">Photo URL</span>
                         </div>
-                        <input type="cost" name="photo" placeholder="Type photo url" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <input type="cost" name="photo" placeholder="Type photo url" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" required />
                     </label>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Your name</span>
                         </div>
-                        <input type="cost" name="name" placeholder="Type your name" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <input type="cost" name="name" defaultValue={user?.displayName} placeholder="Type your name" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" required />
                     </label>
                     <label className="form-control w-full">
                         <div className="label">
                             <span className="label-text">Your email</span>
                         </div>
-                        <input type="cost" name="email" placeholder="Type your email" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <input type="cost" name="email" defaultValue={user?.email} placeholder="Type your email" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" required />
                     </label>
                     <div className="md:col-span-2 mt-5">
                         <button className="btn w-full bg-[#A1C398] text-white text-lg">Add Spot</button>
