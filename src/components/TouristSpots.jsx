@@ -4,7 +4,6 @@ import TouristSpotCard from "./TouristSpotCard";
 const TouristSpots = () => {
 
     const [spots, setSpots] = useState([]);
-    const [seeMore, setSeeMore] = useState(6);
 
     useEffect(() => {
         fetch('http://localhost:3000/touristSpots')
@@ -22,14 +21,7 @@ const TouristSpots = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6">
                 {
-                    spots.slice(0,seeMore).map((spot) => <TouristSpotCard key={spot._id} spot={spot}></TouristSpotCard>)
-                }
-            </div>
-            <div className="pt-6 md:pt-8 lg:pt-12 text-center">
-                {
-                    spots.length !== seeMore ?
-                    <button className="btn bg-[#A1C398] text-white text-lg" onClick={() => setSeeMore(spots.length)}>See More</button> :
-                    <button className="btn bg-[#A1C398] text-white text-lg" onClick={() => setSeeMore(6)}>See Less</button>
+                    spots.slice(0,9).map((spot) => <TouristSpotCard key={spot._id} spot={spot}></TouristSpotCard>)
                 }
             </div>
         </div>
