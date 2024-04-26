@@ -4,7 +4,9 @@ const AddSpot = () => {
 
     const handleAddSpot = (e) => {
         e.preventDefault();
-        toast.success('yes');
+        const form = e.target;
+        console.log(form.country.value);
+
     }
 
     return (
@@ -17,9 +19,16 @@ const AddSpot = () => {
                 <form onSubmit={handleAddSpot} className="grid grid-cols-1 md:grid-cols-2 gap-2 md:gap-4">
                     <label className="form-control w-full">
                         <div className="label">
-                            <span className="label-text">Country name</span>
+                            <span className="label-text">Select country</span>
                         </div>
-                        <input type="text" name="country" placeholder="Type country name" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <select name="country" className="select select-bordered border-[#A1C398] focus:outline-none focus:border-[#FA7070]">
+                            <option value="France">France</option>
+                            <option value="Italy">Italy</option>
+                            <option value="Spain">Spain</option>
+                            <option value="England">England</option>
+                            <option value="Netherlands">Netherlands</option>
+                            <option value="Swizerland">Swizerland</option>
+                        </select>
                     </label>
                     <label className="form-control w-full">
                         <div className="label">
@@ -57,11 +66,11 @@ const AddSpot = () => {
                         </div>
                         <input type="cost" name="visitors" placeholder="Type total visitors" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
                     </label>
-                    <label className="form-control w-full md:col-span-2">
+                    <label className="form-control md:col-span-2">
                         <div className="label">
                             <span className="label-text">Details</span>
                         </div>
-                        <input type="cost" name="details" placeholder="Type details" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <textarea name="details" className="textarea textarea-bordered h-24 border-[#A1C398] focus:outline-none focus:border-[#FA7070]" placeholder="Type details"></textarea>
                     </label>
                     <label className="form-control w-full md:col-span-2">
                         <div className="label">

@@ -1,7 +1,12 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../provider/AuthProvider";
+import { Tooltip } from 'react-tooltip'
+
 
 const NavBar = () => {
+
+    const { user } = useContext(AuthContext); console.log(user);
 
     const [theme, setTheme] = useState('light');
 
@@ -37,10 +42,23 @@ const NavBar = () => {
                         </div>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 gap-1 z-[1] p-2 shadow rounded-box bg-[#FEFDED] w-52 font-semibold">
                             {navLinks}
-                            <li className="block md:hidden">
-                                <Link to="/login"><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white ">Login</button></Link>
-                                <Link><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white ">Register</button></Link>
-                            </li>
+                            {
+                                user ?
+                                <div className="flex gap-2 flex-col md:hidden ">
+                                    <div className="flex items-center gap-2">
+                                        <img src={'https://i.postimg.cc/xTvwshPT/boy1.png'} className="w-10" />
+                                        <div className="text-xs">
+                                            <p>Name: </p>
+                                            <p>Email: </p>
+                                        </div>
+                                    </div>
+                                    <Link><button className="btn btn-sm md:btn-md bg-[#FA7070] text-white">Log out</button></Link>
+                                </div> :
+                                <div className="block md:hidden space-x-3">
+                                    <Link to="/login"><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white ">Login</button></Link>
+                                    <Link><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white ">Register</button></Link>
+                                </div>
+                            }
                         </ul>
                     </div>
                     <a className="btn px-2 md:px-4 btn-ghost text-xl md:text-2xl lg:text-3xl flex gap-0">Tour<span className="text-[#FA7070]">Explorer</span></a>
@@ -59,9 +77,30 @@ const NavBar = () => {
 
                         </label>
                     </div>
-                    <div className="space-x-1 md:space-x-4 hidden md:block">
-                        <Link to="/login"><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white">Login</button></Link>
-                        <Link><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white">Register</button></Link>
+                    <div className="hidden md:block">
+                        {
+                            user ?
+                            <div className="flex gap-2 md:gap-4">
+                                <div className="dropdown"
+                                    data-tooltip-id="my-tooltip"
+                                    data-tooltip-content="Hello world!"
+                                    data-tooltip-place="left"
+                                >
+                                    <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
+                                        <div className="w-10 rounded-full">
+                                            <img alt="Tailwind CSS Navbar component" src={user || 'https://i.postimg.cc/xTvwshPT/boy1.png'} />
+                                        </div>
+                                    </div>
+                                    <Tooltip id="my-tooltip" />
+                                </div>
+                                <Link><button className="btn btn-sm md:btn-md bg-[#FA7070] text-white">Log out</button></Link>
+                            </div>
+                            :
+                            <div className="space-x-1 md:space-x-4">
+                                <Link to="/login"><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white">Login</button></Link>
+                                <Link><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white">Register</button></Link>
+                            </div>
+                        }
                     </div>
                 </div>
             </div>
