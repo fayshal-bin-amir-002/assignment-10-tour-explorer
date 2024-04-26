@@ -1,14 +1,14 @@
-import { createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.config';
-import { GoogleAuthProvider } from 'firebase/auth/cordova';
 
 export const AuthContext = createContext(null);
 
 const AuthProvider = ({ children }) => {
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider();
 
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -27,9 +27,20 @@ const AuthProvider = ({ children }) => {
         return signInWithPopup(auth, googleProvider);
     }
 
+    const githubLogIn = () => {
+        return signInWithPopup(auth, githubProvider);
+    }
+
     const userLogOut = () => {
         setLoading(true);
         return signOut(auth);
+    }
+
+    const userProfileUpdate = (name, photo) => {
+        return updateProfile(auth.currentUser, {
+            displayName: name, 
+            photoURL: photo
+        })
     }
 
     useEffect(() => {
@@ -42,7 +53,7 @@ const AuthProvider = ({ children }) => {
         }
     }, []);
 
-    const authData = { user, loading, userRegister, userLogin, googleLogIn, userLogOut };
+    const authData = { user, loading, userRegister, userLogin, googleLogIn, githubLogIn, userProfileUpdate, userLogOut };
 
     return (
         <AuthContext.Provider value={authData}>

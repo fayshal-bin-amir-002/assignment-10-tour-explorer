@@ -88,7 +88,7 @@ const AddSpot = () => {
                         <div className="label">
                             <span className="label-text">Your email</span>
                         </div>
-                        <input type="cost" name="photo" placeholder="Type your email" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
+                        <input type="cost" name="email" placeholder="Type your email" className="input input-bordered w-full border-[#A1C398] focus:outline-none focus:border-[#FA7070]" />
                     </label>
                     <div className="md:col-span-2 mt-5">
                         <button className="btn w-full bg-[#A1C398] text-white text-lg">Add Spot</button>

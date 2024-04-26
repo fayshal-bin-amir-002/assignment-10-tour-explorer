@@ -46,17 +46,17 @@ const NavBar = () => {
                                 user ?
                                 <div className="flex gap-2 flex-col md:hidden ">
                                     <div className="flex items-center gap-2">
-                                        <img src={'https://i.postimg.cc/xTvwshPT/boy1.png'} className="w-10" />
+                                        <img src={user.photoURL || 'https://i.postimg.cc/xTvwshPT/boy1.png'} className="w-10" />
                                         <div className="text-xs">
-                                            <p>Name: </p>
-                                            <p>Email: </p>
+                                            <p>Name: {user.displayName}</p>
+                                            <p>Email: {user.email}</p>
                                         </div>
                                     </div>
                                     <Link><button className="btn btn-sm md:btn-md bg-[#FA7070] text-white">Log out</button></Link>
                                 </div> :
                                 <div className="block md:hidden space-x-3">
                                     <Link to="/login"><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white ">Login</button></Link>
-                                    <Link><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white ">Register</button></Link>
+                                    <Link to="/register"><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white ">Register</button></Link>
                                 </div>
                             }
                         </ul>
@@ -83,7 +83,7 @@ const NavBar = () => {
                             <div className="flex gap-2 md:gap-4">
                                 <div className="dropdown"
                                     data-tooltip-id="my-tooltip"
-                                    data-tooltip-content="Hello world!"
+                                    data-tooltip-content={user.displayName}
                                     data-tooltip-place="left"
                                 >
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
@@ -93,12 +93,12 @@ const NavBar = () => {
                                     </div>
                                     <Tooltip id="my-tooltip" />
                                 </div>
-                                <Link><button className="btn btn-sm md:btn-md bg-[#FA7070] text-white">Log out</button></Link>
+                                <button className="btn btn-sm md:btn-md bg-[#FA7070] text-white">Log out</button>
                             </div>
                             :
                             <div className="space-x-1 md:space-x-4">
                                 <Link to="/login"><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white">Login</button></Link>
-                                <Link><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white">Register</button></Link>
+                                <Link to="/register"><button className="btn btn-sm md:btn-md bg-[#A1C398] text-white">Register</button></Link>
                             </div>
                         }
                     </div>
