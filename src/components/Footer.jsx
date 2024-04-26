@@ -22,18 +22,18 @@ const Footer = () => {
     ]
 
     return (
-        <div>
-            <footer className="text-gray-500 bg-white px-4 py-5 max-w-screen-xl mx-auto md:px-8">
+        <div className="bg-black bg-opacity-90">
+            <footer className="text-white opacity-90 p-6 max-w-screen-xl mx-auto">
                 <div className="max-w-lg sm:mx-auto sm:text-center">
-                    <img src="https://www.floatui.com/logo.svg" className="w-32 sm:mx-auto" />
+                    <h3 className="text-3xl md:text-4xl lg:text-5xl font-semibold">Tour<span className="text-[#FA7070]">Explorer</span></h3>
                     <p className="leading-relaxed mt-2 text-[15px]">
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
+                    Keep in touch, discover new adventures, reach out to us, find terms and privacy details, and remember, it's all about your experience. 
                     </p>
                 </div>
-                <ul className="items-center justify-center mt-8 space-y-5 sm:flex sm:space-x-4 sm:space-y-0">
+                <ul className="items-center flex-wrap justify-center mt-8 flex gap-6 lg:gap-8">
                     {
                         footerNavs.map((item, idx) => (
-                            <li key={idx} className=" hover:text-gray-800">
+                            <li key={idx} className=" hover:text-[#FA7070]">
                                 <Link to={item.href}>
                                     {item.name}
                                 </Link>
@@ -41,12 +41,12 @@ const Footer = () => {
                         ))
                     }
                 </ul>
-                <div className="mt-8 items-center justify-between sm:flex">
+                <div className="mt-8 items-center justify-between flex flex-col md:flex-row">
                     <div className="mt-4 sm:mt-0">
-                        &copy; 2022 Float UI All rights reserved.
+                        &copy; 2024 All rights reserved by Tour<span className="text-[#FA7070]">Explorer</span>. 
                     </div>
                     <div className="mt-6 sm:mt-0">
-                        <ul className="flex items-center space-x-4">
+                        <ul className="flex justify-around items-center space-x-4">
                             <li className="w-10 h-10 border rounded-full flex items-center justify-center">
                                 <a>
                                     <svg className="svg-icon w-6 h-6 text-blue-400" viewBox="0 0 20 20">

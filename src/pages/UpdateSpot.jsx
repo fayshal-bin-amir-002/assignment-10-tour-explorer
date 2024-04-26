@@ -46,7 +46,7 @@ const UpdateSpot = () => {
     }
 
     return (
-        <div className="container mx-auto min-h-[calc(100vh-116px)] px-6 md:px-8 py-6 md:py-8 lg:py-12">
+        <div className="container mx-auto min-h-[calc(100vh-422px)] md:min-h-[calc(100vh-347px)] px-6 md:px-8 py-6 md:py-8 lg:py-12">
             <div className="lg:w-2/3 mx-auto">
                 <div className="text-left">
                     <h3 className="max-w-max pb-2 mb-4 lg:mb-6 border-[#FA7070] text-2xl md:text-3xl lg:text-4xl font-semibold border-b-4">Update your tourist spot</h3>

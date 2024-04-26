@@ -56,7 +56,7 @@ const Login = () => {
     }
 
     return (
-        <div className="min-h-[calc(100vh-116px)] flex justify-center items-center container mx-auto py-6 md:py-8 lg:py-12 px-6">
+        <div className="min-h-[calc(100vh-422px)] md:min-h-[calc(100vh-347px)] flex justify-center items-center container mx-auto py-6 md:py-8 lg:py-12 px-6">
             <div className="md:w-4/5 lg:w-1/2 mx-auto">
                 <div className="text-left">
                     <h3 className="max-w-max pb-2 mb-4 lg:mb-6 border-[#FA7070] text-2xl md:text-3xl lg:text-4xl font-semibold border-b-4">Login Now</h3>
