@@ -51,7 +51,7 @@ const NavBar = () => {
                         <div tabIndex={0} role="button" className="btn px-2 md:px-4 btn-ghost lg:hidden">
                             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h8m-8 6h16" /></svg>
                         </div>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 gap-1 z-[1] p-2 shadow rounded-box bg-[#FEFDED] w-52 font-semibold">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 gap-1 z-[1] p-2 shadow rounded-box bg-[#FEFDED] w-52 font-semibold overflow-hidden">
                             {navLinks}
                             {
                                 user ?
@@ -60,7 +60,7 @@ const NavBar = () => {
                                         <img src={user?.photoURL || 'https://i.postimg.cc/xTvwshPT/boy1.png'} className="w-10" />
                                         <div className="text-xs">
                                             <p>{user?.displayName}</p>
-                                            <p>{user?.email}</p>
+                                            <p className=" break-words break-all">{user?.email}</p>
                                         </div>
                                     </div>
                                     <Link><button onClick={handleLogout} className="btn btn-sm md:btn-md bg-[#FA7070] text-white">Log out</button></Link>

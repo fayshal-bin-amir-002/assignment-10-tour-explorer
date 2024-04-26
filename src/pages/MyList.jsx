@@ -1,6 +1,5 @@
 import { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import MyListCard from "../components/MyListCard";
 import Swal from 'sweetalert2';
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
@@ -17,7 +16,7 @@ const MyList = () => {
             .then(res => res.json())
             .then(data => setSpots(data))
     }, [user]);
-    console.log(spots);
+    
     const handleDeleteSpot = (id) => {
         Swal.fire({
             title: "Are you sure?",
