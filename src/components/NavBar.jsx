@@ -57,10 +57,10 @@ const NavBar = () => {
                                 user ?
                                 <div className="flex gap-2 flex-col md:hidden ">
                                     <div className="flex items-center gap-2">
-                                        <img src={user.photoURL || 'https://i.postimg.cc/xTvwshPT/boy1.png'} className="w-10" />
+                                        <img src={user?.photoURL || 'https://i.postimg.cc/xTvwshPT/boy1.png'} className="w-10" />
                                         <div className="text-xs">
-                                            <p>{user.displayName}</p>
-                                            <p>{user.email}</p>
+                                            <p>{user?.displayName}</p>
+                                            <p>{user?.email}</p>
                                         </div>
                                     </div>
                                     <Link><button onClick={handleLogout} className="btn btn-sm md:btn-md bg-[#FA7070] text-white">Log out</button></Link>
@@ -99,7 +99,7 @@ const NavBar = () => {
                                 >
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
-                                            <img alt="Tailwind CSS Navbar component" src={user.photoURL || 'https://i.postimg.cc/xTvwshPT/boy1.png'} />
+                                            <img alt="Tailwind CSS Navbar component" src={user?.photoURL || 'https://i.postimg.cc/xTvwshPT/boy1.png'} />
                                         </div>
                                     </div>
                                     <Tooltip id="my-tooltip" />

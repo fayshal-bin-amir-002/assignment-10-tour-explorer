@@ -2,6 +2,7 @@ import { GithubAuthProvider, GoogleAuthProvider, createUserWithEmailAndPassword,
 import PropTypes from 'prop-types';
 import { createContext, useEffect, useState } from 'react';
 import auth from '../firebase/firebase.config';
+import Loader from '../components/Loader';
 
 export const AuthContext = createContext(null);
 
@@ -14,12 +15,10 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const userRegister = (email, password) => {
-        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password);
     }
 
     const userLogin = (email, password) => {
-        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password);
     }
 
@@ -32,7 +31,6 @@ const AuthProvider = ({ children }) => {
     }
 
     const userLogOut = () => {
-        setLoading(true);
         return signOut(auth);
     }
 
@@ -54,6 +52,10 @@ const AuthProvider = ({ children }) => {
     }, []);
 
     const authData = { user, loading, userRegister, userLogin, googleLogIn, githubLogIn, userProfileUpdate, userLogOut };
+
+    if(loading) {
+        return <Loader></Loader>
+    }
 
     return (
         <AuthContext.Provider value={authData}>

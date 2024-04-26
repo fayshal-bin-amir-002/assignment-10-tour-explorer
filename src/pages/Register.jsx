@@ -41,7 +41,6 @@ const Register = () => {
                     .then(() => {
                         userLogOut()
                             .then(() => {
-                                toast.success("User registration successfully.");
                                 navigate('/login');
                             })
                             .catch((error) => {
@@ -51,6 +50,7 @@ const Register = () => {
                     .catch((error) => {
                         toast.error(error.message);
                     })
+                toast.success("User registration successfully.");
             })
             .catch((error) => {
                 toast.error(error.message);

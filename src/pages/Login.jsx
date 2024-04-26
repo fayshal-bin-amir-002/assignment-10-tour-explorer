@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { IoIosEye } from "react-icons/io";
 import { IoIosEyeOff } from "react-icons/io";
 import { useContext, useState } from "react";
@@ -11,6 +11,10 @@ const Login = () => {
 
     const { userLogin, googleLogIn, githubLogIn } = useContext(AuthContext);
 
+    const navigate = useNavigate();
+
+    const location = useLocation();
+
     const [show, setShow] = useState(false);
 
     const handleLogin = (e) => {
@@ -22,6 +26,29 @@ const Login = () => {
         userLogin(email, password)
             .then(() => {
                 toast.success("User logged in successfully");
+                location?.state ? navigate(location.state) : navigate('/')
+            })
+            .catch((error) => {
+                toast.error(error.message);
+            })
+    }
+
+    const handleGoogleLogin = () => {
+        googleLogIn()
+            .then(() => {
+                toast.success("User logged in successfully");
+                location?.state ? navigate(location.state) : navigate('/')
+            })
+            .catch((error) => {
+                toast.error(error.message);
+            })
+    }
+
+    const handleGithubLogin = () => {
+        githubLogIn()
+            .then(() => {
+                toast.success("User logged in successfully");
+                location?.state ? navigate(location.state) : navigate('/')
             })
             .catch((error) => {
                 toast.error(error.message);
@@ -60,11 +87,11 @@ const Login = () => {
                 </form>
                 <div className="divider"></div>
                 <div>
-                    <button className="btn bg-[#FA7070] w-full text-white text-lg rounded-full mb-2">
+                    <button onClick={handleGoogleLogin} className="btn bg-[#FA7070] w-full text-white text-lg rounded-full mb-2">
                         <img src={google} alt="" className="inline w-6" />
                         Continue With Google
                     </button>
-                    <button className="btn bg-[#A1C398] w-full text-white text-lg rounded-full">
+                    <button onClick={handleGithubLogin} className="btn bg-[#A1C398] w-full text-white text-lg rounded-full">
                         <img src={github} alt="" className="inline w-6" />
                         Continue With Github
                     </button>
