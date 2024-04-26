@@ -10,6 +10,7 @@ import Login from "../pages/Login";
 import Register from "../pages/Register";
 import ErrorPage from "../pages/ErrorPage";
 import UpdateSpot from "../pages/UpdateSpot";
+import CountrySpots from "../pages/CountrySpots";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,11 @@ const router = createBrowserRouter([
         path: "/update-spot/:id",
         element: <UpdateSpot></UpdateSpot>,
         loader: ({params}) => fetch(`http://localhost:3000/touristSpots/${params.id}`)
+      },
+      {
+        path: "/country-spots/:country",
+        element: <CountrySpots></CountrySpots>,
+        loader: ({params}) => fetch(`http://localhost:3000/countrySpots/${params.country}`)
       }
     ],
     errorElement: <ErrorPage></ErrorPage>

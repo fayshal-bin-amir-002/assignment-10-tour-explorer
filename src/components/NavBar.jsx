@@ -95,7 +95,7 @@ const NavBar = () => {
                                 <div className="dropdown"
                                     data-tooltip-id="my-tooltip"
                                     data-tooltip-content={user.displayName}
-                                    data-tooltip-place="left"
+                                    data-tooltip-place="bottom"
                                 >
                                     <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
                                         <div className="w-10 rounded-full">
