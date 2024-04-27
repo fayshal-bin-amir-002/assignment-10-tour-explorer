@@ -56,7 +56,7 @@ const MyList = () => {
                 <div className="items-start justify-between md:flex">
                     <div className="max-w-lg">
                         <h3 className="max-w-max pb-2 mb-4 lg:mb-6 border-[#FA7070] text-2xl md:text-3xl lg:text-4xl font-semibold border-b-4">Your added spots are here</h3>
-                        <p className="text-gray-600 mt-2">
+                        <p className="mt-2">
                         Discover our latest additions: hidden gems nestled amidst breathtaking landscapes.
                         </p>
                     </div>
@@ -76,7 +76,7 @@ const MyList = () => {
 
                             </tr>
                         </thead>
-                        <tbody className="text-gray-600 divide-y">
+                        <tbody className="divide-y">
                             {
                                 spots.map((item, idx) => (
                                     <tr key={idx}>
