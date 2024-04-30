@@ -87,8 +87,8 @@ const NavBar = () => {
                     <div className="flex">
                         {
                             theme === 'light' ?
-                                <button className="text-2xl" onClick={() => setTheme('dark')}><IoSunnyOutline /></button> :
-                                <button className="text-2xl" onClick={() => setTheme('light')}><GoMoon /></button>
+                                <button className="text-3xl" onClick={() => setTheme('dark')}><IoSunnyOutline /></button> :
+                                <button className="text-3xl" onClick={() => setTheme('light')}><GoMoon /></button>
                         }
                     </div>
                     <div className="hidden md:block">
